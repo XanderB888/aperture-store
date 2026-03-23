@@ -55,6 +55,13 @@ function Login() {
           </button>
         </form>
 
+        <div style={styles.divider2} />
+
+        <a href="http://localhost:3000/auth/google" style={styles.googleButton}>
+          <span style={{ marginRight: '10px' }}>G</span>
+          CONTINUE WITH GOOGLE
+        </a>
+
         <p style={styles.link}>
           No account?{' '}
           <Link to="/register" style={styles.linkText}>
@@ -171,6 +178,28 @@ const styles = {
     textAlign: 'center',
     marginTop: '32px',
     fontStyle: 'italic',
+  },
+  divider2: {
+  height: '1px',
+  backgroundColor: '#00d4ff22',
+  margin: '20px 0',
+  },
+  googleButton: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    border: '1px solid #333',
+    borderBottom: '1px solid #00d4ff55',
+    color: '#ffffff',
+    padding: '14px',
+    fontSize: '12px',
+    fontWeight: 'bold',
+    letterSpacing: '3px',
+    cursor: 'pointer',
+    fontFamily: "'Courier New', monospace",
+    textDecoration: 'none',
+    transition: 'border-color 0.2s',
   },
 }
 
