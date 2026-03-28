@@ -6,6 +6,7 @@ function Products() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [hoveredId, setHoveredId] = useState(null)
 
   useEffect(() => {
     api.get('/products')
@@ -27,7 +28,15 @@ function Products() {
 
       <div style={styles.grid}>
         {products.map(product => (
-          <Link to={`/products/${product.id}`} key={product.id} style={styles.card}>
+          <Link
+            to={`/products/${product.id}`}
+            key={product.id}
+            style={{
+              ...styles.card,
+              ...(hoveredId === product.id ? styles.cardHover : {})
+            }}
+            onMouseEnter={() => setHoveredId(product.id)}
+            onMouseLeave={() => setHoveredId(null)}>
             <div style={styles.cardImage}>
               {product.image_url ? (
                 <img
@@ -102,8 +111,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '12px',
-    transition: 'border-color 0.2s',
+    transition: 'all 0.2s ease',
     cursor: 'pointer',
+  },
+  cardHover: {
+    backgroundColor: '#141414',
+    border: '1px solid #00d4ff44',
+    borderTop: '2px solid #00d4ff',
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 32px #00d4ff15',
+    
   },
   cardTop: {
     display: 'flex',
@@ -111,19 +128,19 @@ const styles = {
   },
   cardTag: {
     color: '#00d4ff',
-    fontSize: '10px',
+    fontSize: '11px',
     letterSpacing: '2px',
   },
   cardTitle: {
     color: '#ffffff',
-    fontSize: '14px',
+    fontSize: '16px',
     letterSpacing: '2px',
     margin: '0',
     lineHeight: '1.4',
   },
   cardDesc: {
     color: '#666',
-    fontSize: '12px',
+    fontSize: '13px',
     lineHeight: '1.6',
     margin: '0',
     flex: 1,
@@ -167,12 +184,12 @@ imgPlaceholderText: {
 },
   price: {
     color: '#00d4ff',
-    fontSize: '18px',
+    fontSize: '22px',
     fontWeight: 'bold',
   },
   stock: {
     color: '#444',
-    fontSize: '10px',
+    fontSize: '11px',
     letterSpacing: '2px',
   },
   status: {
