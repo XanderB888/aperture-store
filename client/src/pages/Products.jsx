@@ -28,6 +28,19 @@ function Products() {
       <div style={styles.grid}>
         {products.map(product => (
           <Link to={`/products/${product.id}`} key={product.id} style={styles.card}>
+            <div style={styles.cardImage}>
+              {product.image_url ? (
+                <img
+                  src={product.image_url}
+                  alt={product.name}
+                  style={styles.img}
+                />
+              ) : (
+                <div style={styles.imgPlaceholder}>
+                  <span style={styles.imgPlaceholderText}>⊕</span>
+                </div>
+              )}
+            </div>
             <div style={styles.cardTop}>
               <span style={styles.cardTag}>UNIT-{String(product.id).padStart(3, '0')}</span>
             </div>
@@ -76,7 +89,7 @@ const styles = {
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
     gap: '24px',
     marginTop: '40px',
   },
@@ -123,6 +136,35 @@ const styles = {
     paddingTop: '12px',
     marginTop: '4px',
   },
+  cardImage: {
+  width: '100%',
+  height: '220px',
+  overflow: 'hidden',
+  marginBottom: '8px',
+  backgroundColor: '#0a0a0a',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+img: {
+  width: '100%',
+  height: '100%',
+  objectFit: 'contain',
+  padding: '16px'
+},
+imgPlaceholder: {
+  width: '100%',
+  height: '100%',
+  backgroundColor: '#0d0d0d',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '1px solid #1a1a1a',
+},
+imgPlaceholderText: {
+  color: '#00d4ff22',
+  fontSize: '64px',
+},
   price: {
     color: '#00d4ff',
     fontSize: '18px',
