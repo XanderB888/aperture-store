@@ -18,6 +18,7 @@ function Navbar() {
 
       <div style={styles.links}>
         <Link to="/products" style={styles.link}>PRODUCTS</Link>
+        <Link to="/about" style={styles.link}>ABOUT</Link>
 
         {user ? (
           <>
