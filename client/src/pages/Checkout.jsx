@@ -40,6 +40,7 @@ function Checkout() {
 
   return (
     <div style={styles.container}>
+      <div style={styles.inner}>
       <h1 style={styles.title}>ACQUISITION CONFIRMATION</h1>
       <p style={styles.subtitle}>REVIEW AND CONFIRM YOUR ORDER</p>
       <div style={styles.divider} />
@@ -105,6 +106,7 @@ function Checkout() {
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }
@@ -115,6 +117,10 @@ const styles = {
     backgroundColor: '#0a0a0a',
     fontFamily: "'Courier New', monospace",
     padding: '40px',
+  },
+  inner: {
+    maxWidth: '900px',
+    margin: '0 auto',
   },
   title: {
     color: '#ffffff',

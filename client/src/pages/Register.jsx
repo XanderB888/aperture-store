@@ -23,7 +23,11 @@ function Register() {
   return (
     <div style={styles.container}>
       <div style={styles.panel}>
-        <div style={styles.logo}>⊕</div>
+        <img 
+          src="/images/Aperture_Science_logo.png" 
+          alt="Aperture Science" 
+          style={styles.logoImg} 
+        />
         <h1 style={styles.title}>APERTURE STORE</h1>
         <p style={styles.subtitle}>SUBJECT REGISTRATION PORTAL</p>
         <div style={styles.divider} />
@@ -99,11 +103,12 @@ const styles = {
     maxWidth: '420px',
     boxShadow: '0 0 40px #00d4ff15',
   },
-  logo: {
-    fontSize: '48px',
-    color: '#00d4ff',
-    textAlign: 'center',
-    marginBottom: '12px',
+  logoImg: {
+    width: '120px',
+    height: 'auto',
+    display: 'block',
+    margin: '0 auto 16px auto',
+    filter: 'invert(1)',
   },
   title: {
     color: '#ffffff',

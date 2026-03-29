@@ -50,6 +50,7 @@ function Cart() {
 
   return (
     <div style={styles.container}>
+      <div style={styles.inner}>
       <h1 style={styles.title}>ACQUISITION QUEUE</h1>
       <p style={styles.subtitle}>ITEMS PENDING PROCUREMENT</p>
       <div style={styles.divider} />
@@ -125,6 +126,7 @@ function Cart() {
           </div>
         </>
       )}
+      </div>
     </div>
   )
 }
@@ -135,6 +137,8 @@ const styles = {
     backgroundColor: '#0a0a0a',
     fontFamily: "'Courier New', monospace",
     padding: '40px',
+  },
+  inner: {
     maxWidth: '900px',
     margin: '0 auto',
   },

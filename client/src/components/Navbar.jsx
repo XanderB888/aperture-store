@@ -13,7 +13,7 @@ function Navbar() {
   return (
     <nav style={styles.nav}>
       <Link to="/" style={styles.logo}>
-        ⊕ APERTURE STORE
+        <img src="/images/Aperture_Science_logo.png" alt="Aperture Store" style={styles.logoImg} />
       </Link>
 
       <div style={styles.links}>
@@ -53,11 +53,14 @@ const styles = {
     zIndex: 100,
   },
   logo: {
-    color: '#00d4ff',
     textDecoration: 'none',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    letterSpacing: '4px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  logoImg: {
+    height: '40px',
+    width: 'auto',
+    filter: 'invert(1)',
   },
   links: {
     display: 'flex',

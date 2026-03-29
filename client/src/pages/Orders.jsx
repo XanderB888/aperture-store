@@ -23,6 +23,7 @@ function Orders() {
 
   return (
     <div style={styles.container}>
+      <div style={styles.inner}>
       <h1 style={styles.title}>ORDER HISTORY</h1>
       <p style={styles.subtitle}>ACQUISITION RECORDS — SUBJECT FILE</p>
       <div style={styles.divider} />
@@ -93,6 +94,7 @@ function Orders() {
           ))}
         </div>
       )}
+      </div>
     </div>
   )
 }
@@ -103,6 +105,8 @@ const styles = {
     backgroundColor: '#0a0a0a',
     fontFamily: "'Courier New', monospace",
     padding: '40px',
+  },
+  inner: {
     maxWidth: '900px',
     margin: '0 auto',
   },
