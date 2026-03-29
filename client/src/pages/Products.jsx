@@ -82,13 +82,13 @@ const styles = {
   },
   title: {
     color: '#ffffff',
-    fontSize: '24px',
+    fontSize: '26px',
     letterSpacing: '6px',
     margin: '0 0 8px 0',
   },
   subtitle: {
     color: '#00d4ff',
-    fontSize: '10px',
+    fontSize: '12px',
     letterSpacing: '4px',
     margin: '0 0 24px 0',
   },
@@ -128,19 +128,19 @@ const styles = {
   },
   cardTag: {
     color: '#00d4ff',
-    fontSize: '11px',
+    fontSize: '12px',
     letterSpacing: '2px',
   },
   cardTitle: {
     color: '#ffffff',
-    fontSize: '16px',
+    fontSize: '18px',
     letterSpacing: '2px',
     margin: '0',
     lineHeight: '1.4',
   },
   cardDesc: {
     color: '#666',
-    fontSize: '13px',
+    fontSize: '14px',
     lineHeight: '1.6',
     margin: '0',
     flex: 1,
@@ -155,7 +155,7 @@ const styles = {
   },
   cardImage: {
   width: '100%',
-  height: '220px',
+  height: '250px',
   overflow: 'hidden',
   marginBottom: '8px',
   backgroundColor: '#0a0a0a',
@@ -188,8 +188,8 @@ imgPlaceholderText: {
     fontWeight: 'bold',
   },
   stock: {
-    color: '#444',
-    fontSize: '11px',
+    color: '#555555',
+    fontSize: '12px',
     letterSpacing: '2px',
   },
   status: {
