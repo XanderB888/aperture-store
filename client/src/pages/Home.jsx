@@ -1,11 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 function Home() {
   const { user } = useAuth()
   const heroRef = useRef(null)
   const glowRef = useRef(null)
+  const [hoveredBtn, setHoveredBtn] = useState(null)
+  
 
   useEffect(() => {
     const hero = heroRef.current
@@ -60,13 +62,29 @@ function Home() {
     </p>
 
     <div style={styles.heroBtns}>
-      <Link to="/products" style={styles.primaryBtn}>
+      <Link 
+        to="/products" 
+        style={{
+          ...styles.primaryBtn,
+          ...(hoveredBtn === 'browse' ? styles.primaryBtnHover : {})
+        }}
+        onMouseEnter={() => setHoveredBtn('browse')}
+        onMouseLeave={() => setHoveredBtn(null)}
+      >
         BROWSE INVENTORY →
       </Link>
       {!user && (
-        <Link to="/register" style={styles.secondaryBtn}>
-          REGISTER AS SUBJECT
-        </Link>
+        <Link 
+        to="/register" 
+        style={{
+          ...styles.secondaryBtn,
+          ...(hoveredBtn === 'register' ? styles.secondaryBtnHover : {})
+        }}
+        onMouseEnter={() => setHoveredBtn('register')}
+        onMouseLeave={() => setHoveredBtn(null)}
+      >
+        REGISTER AS SUBJECT
+      </Link>
       )}
     </div>
   </div>
@@ -90,9 +108,17 @@ function Home() {
       </span>
       <span style={styles.heroProductPrice}>£149.99</span>
     </div>
-    <Link to="/products/13" style={styles.heroProductBtn}>
-      VIEW PRODUCT →
-    </Link>
+    <Link 
+        to={`/products/${13}`}
+        style={{
+          ...styles.heroProductBtn,
+          ...(hoveredBtn === 'view' ? styles.heroProductBtnHover : {})
+        }}
+        onMouseEnter={() => setHoveredBtn('view')}
+        onMouseLeave={() => setHoveredBtn(null)}
+      >
+        VIEW PRODUCT →
+      </Link>
   </div>
 </div>
 
@@ -165,9 +191,17 @@ function Home() {
           <p style={styles.ctaAuthor}>— Cave Johnson, CEO</p>
         </div>
         <div style={styles.ctaRight}>
-          <Link to="/products" style={styles.primaryBtn}>
-            START ACQUIRING →
-          </Link>
+          <Link 
+        to="/products" 
+        style={{
+          ...styles.primaryBtn,
+          ...(hoveredBtn === 'acquire' ? styles.primaryBtnHover : {})
+        }}
+        onMouseEnter={() => setHoveredBtn('acquire')}
+        onMouseLeave={() => setHoveredBtn(null)}
+      >
+        START ACQUIRING →
+      </Link>
           {!user && (
             <Link to="/register" style={styles.secondaryBtn}>
               CREATE ACCOUNT
@@ -227,12 +261,27 @@ const styles = {
     pointerEvents: 'none',
     transition: 'background 0.1s ease',
   },
-  heroContent: {
-    position: 'relative',
-    zIndex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '32px',
+  primaryBtnHover: {
+    backgroundColor: '#00b8d9',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 20px rgba(0, 212, 255, 0.3)',
+  },
+  secondaryBtnHover: {
+    backgroundColor: 'rgba(0, 212, 255, 0.08)',
+    borderColor: '#00d4ff',
+    transform: 'translateY(-2px)',
+  },
+  heroProductBtnHover: {
+    backgroundColor: '#00b8d9',
+    transform: 'translateY(-2px)',
+    boxShadow: '0 4px 20px rgba(0, 212, 255, 0.3)',
+  },
+    heroContent: {
+      position: 'relative',
+      zIndex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '32px',
   },
   eyebrowRow: {
     display: 'flex',
