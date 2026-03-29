@@ -32,7 +32,11 @@ function Home() {
         </div>
 
         <div style={styles.heroVisual}>
-          <div style={styles.apertureLogo}>⊕</div>
+          <img 
+          src="/images/Aperture_Science_logo.png" 
+          alt="Aperture Science" 
+          style={styles.logoImg} 
+        />
           <div style={styles.scanline} />
         </div>
       </div>
@@ -111,6 +115,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
+    padding: '0 0 0 70px '
   },
   eyebrow: {
     color: '#00d4ff',
@@ -151,6 +156,13 @@ const styles = {
     fontFamily: "'Courier New', monospace",
     display: 'inline-block',
   },
+  logoImg: {
+    width: '620px',
+    height: 'auto',
+    display: 'block',
+    margin: '0 auto 16px auto',
+    filter: 'invert(1)',
+  },
   secondaryBtn: {
     backgroundColor: 'transparent',
     color: '#00d4ff',
@@ -168,21 +180,6 @@ const styles = {
     justifyContent: 'center',
     position: 'relative',
     height: '400px',
-  },
-  apertureLogo: {
-    fontSize: '280px',
-    color: '#00d4ff',
-    opacity: '0.08',
-    userSelect: 'none',
-    position: 'absolute',
-  },
-  scanline: {
-    position: 'absolute',
-    width: '2px',
-    height: '100%',
-    backgroundColor: '#00d4ff',
-    opacity: '0.3',
-    animation: 'none',
   },
   divider: {
     height: '1px',
