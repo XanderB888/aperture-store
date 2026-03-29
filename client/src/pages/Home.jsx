@@ -1,15 +1,44 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { useRef, useEffect } from 'react'
 
 function Home() {
   const { user } = useAuth()
+  const heroRef = useRef(null)
+  const glowRef = useRef(null)
+
+  useEffect(() => {
+    const hero = heroRef.current
+    const glow = glowRef.current
+    if (!hero || !glow) return
+
+    const handleMouseMove = (e) => {
+      const rect = hero.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      glow.style.background = `radial-gradient(50px circle at ${x}px ${y}px, rgba(0, 213, 255, 0.06), transparent 70%)`
+    }
+
+    const handleMouseLeave = () => {
+      glow.style.background = 'transparent'
+    }
+
+    hero.addEventListener('mousemove', handleMouseMove)
+    hero.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      hero.removeEventListener('mousemove', handleMouseMove)
+      hero.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [])
 
   return (
     <div style={styles.container}>
 
       {/* Hero */}
-<div style={styles.hero}>
+<div style={styles.hero} ref={heroRef}>
   <div style={styles.gridBg} />
+  <div style={styles.glow} ref={glowRef} />
 
   {/* Left content */}
   <div style={styles.heroContent}>
@@ -187,6 +216,16 @@ const styles = {
     `,
     backgroundSize: '60px 60px',
     zIndex: 0,
+  },
+  glow: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 0,
+    pointerEvents: 'none',
+    transition: 'background 0.1s ease',
   },
   heroContent: {
     position: 'relative',
