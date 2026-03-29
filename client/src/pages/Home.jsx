@@ -18,7 +18,7 @@ function Home() {
       const rect = hero.getBoundingClientRect()
       const x = e.clientX - rect.left
       const y = e.clientY - rect.top
-      glow.style.background = `radial-gradient(50px circle at ${x}px ${y}px, rgba(0, 213, 255, 0.06), transparent 70%)`
+      glow.style.background = `radial-gradient(14px circle at ${x}px ${y}px, rgba(255, 0, 0, 0.56), transparent 70%)`
     }
 
     const handleMouseLeave = () => {
@@ -248,7 +248,7 @@ const styles = {
       linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px)
     `,
-    backgroundSize: '60px 60px',
+    backgroundSize: '5px 5px',
     zIndex: 0,
   },
   glow: {
@@ -278,7 +278,7 @@ const styles = {
   },
     heroContent: {
       position: 'relative',
-      zIndex: 1,
+      zIndex: 2,
       display: 'flex',
       flexDirection: 'column',
       gap: '32px',
@@ -326,12 +326,12 @@ const styles = {
   },
   heroVisual: {
     position: 'relative',
-    zIndex: 1,
+    zIndex: 2,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     gap: '16px',
-    backgroundColor: '#0d0d0d',
+    backgroundColor: 'rgba(0, 217, 255, 0.06)',
     border: '1px solid #1a1a1a',
     borderTop: '2px solid #00d4ff44',
     padding: '40px',
