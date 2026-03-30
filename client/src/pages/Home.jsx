@@ -95,7 +95,7 @@ function Home() {
       <div style={styles.featuredDot} />
       FEATURED PRODUCT
     </div>
-    <Link to="/products/13" style={styles.heroProductLink}>
+    <Link to="/products/1" style={styles.heroProductLink}>
       <img
         src="/images/portal-device.png"
         alt="Aperture Science Hand-Held Portal Device"
@@ -109,7 +109,7 @@ function Home() {
       <span style={styles.heroProductPrice}>£149.99</span>
     </div>
     <Link 
-        to={`/products/${13}`}
+        to={`/products/${1}`}
         style={{
           ...styles.heroProductBtn,
           ...(hoveredBtn === 'view' ? styles.heroProductBtnHover : {})
