@@ -109,7 +109,9 @@ router.get('/google',
 router.get('/google/callback',
   passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
-    res.redirect('http://localhost:5173/')
+    res.redirect(process.env.NODE_ENV === 'production' 
+      ? 'https://aperture-store.onrender.com/'
+      : 'http://localhost:5173/')
   }
 );
 

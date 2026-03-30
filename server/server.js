@@ -59,12 +59,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/products', productsRouter);
-app.use('/auth', authRouter);
-app.use('/users', usersRouter);
-app.use('/cart', cartRouter);
-app.use('/checkout', checkoutRouter);
-app.use('/orders', ordersRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/cart', cartRouter);
+app.use('/api/checkout', checkoutRouter);
+app.use('/api/orders', ordersRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 const path = require('path')
@@ -77,4 +77,4 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(3000, () => console.log('Server running on port 3000'))
