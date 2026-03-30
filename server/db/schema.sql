@@ -16,7 +16,8 @@ CREATE TABLE products (
   description VARCHAR(100),
   price INTEGER NOT NULL,
   quantity_in_stock INTEGER,
-  created_at DATE
+  created_at DATE,
+  image_url VARCHAR(500)
 );
 
 /*carts*/
