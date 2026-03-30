@@ -6,7 +6,7 @@ A fully functional e-commerce web application built with React, Node.js, Express
 
 ## Live Demo
 
-🔗 [Update after deployment](#)
+🔗 [https://aperture-store.onrender.com]
 
 ---
 
